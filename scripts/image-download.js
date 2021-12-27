@@ -37,7 +37,8 @@ console.log("Running Script");
         obj['Kilométrage'] = listingDetails.vehicle.mileageInKmRaw;
         obj['Prix'] = listingDetails.prices.public.priceRaw;
         console.log(listingDetails.description);
-        obj['Description'] = document.querySelector('div[data-cy="seller-notes-section"]').innerText;
+        const formattedDescription = document.querySelector('div[data-cy="seller-notes-section"]').innerText.replace('Description', '').replace('Afficher plus', '');
+        obj['Description'] = formattedDescription
         obj['Marque'] = listingDetails.vehicle.make;
         obj['Année'] = listingDetails.vehicle.firstRegistrationDate.split('/')[1];
         obj['Modèle'] = listingDetails.vehicle.model;
