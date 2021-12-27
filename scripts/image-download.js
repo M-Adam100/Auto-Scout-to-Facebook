@@ -31,13 +31,13 @@ console.log("Running Script");
                 productData = JSON.parse(data);
             }
         }
-    
+
         const { listingDetails } = productData.props.pageProps;
         const obj = {};
         obj['Kilométrage'] = listingDetails.vehicle.mileageInKmRaw;
         obj['Prix'] = listingDetails.prices.public.priceRaw;
-        const extractedDescription = extractContent(listingDetails.description, true);
-        obj['Description'] = extractedDescription;
+        console.log(listingDetails.description);
+        obj['Description'] = document.querySelector('div[data-cy="seller-notes-section"]').innerText;
         obj['Marque'] = listingDetails.vehicle.make;
         obj['Année'] = listingDetails.vehicle.firstRegistrationDate.split('/')[1];
         obj['Modèle'] = listingDetails.vehicle.model;
@@ -46,7 +46,6 @@ console.log("Running Script");
         obj['Transmission'] = listingDetails.vehicle.transmissionType;
         chrome.storage.local.set({ characteristics: obj });
         console.log(obj);
-    
         const images = [];
         const name = document.title.replaceAll(' ', '_');
         const removeSlash = name.replaceAll('/', '');
@@ -62,13 +61,13 @@ console.log("Running Script");
 
                     images.push({ url: imageUrl, filename: filename })
                 }
-               
+
             })
-    
+
         }
-    
-        chrome.runtime.sendMessage({ images, folderName: filteredName });
+
+        //chrome.runtime.sendMessage({ images, folderName: filteredName });
         alert("Copying is Done!");
-    
+
     } else alert("Please Go to an Auto Scout Page");
     })()
