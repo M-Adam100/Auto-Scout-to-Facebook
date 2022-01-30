@@ -67,7 +67,7 @@ console.log("Running Script");
 
         }
 
-        //chrome.runtime.sendMessage({ images, folderName: filteredName });
+        chrome.runtime.sendMessage({ images, folderName: filteredName });
         alert("Copying is Done!");
 
     } else alert("Please Go to an Auto Scout Page");

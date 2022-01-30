@@ -66,13 +66,12 @@ console.log("Pasting Data");
     // Price.value = characteristics["Prix"];
     // Price.dispatchEvent(new InputEvent('change', { bubbles: true }));
 
-    const Year = document.querySelector('label[aria-label="Année"]').querySelector('div[aria-invalid="false"]').querySelector('span');
-    setNativeValue(Year, characteristics['Année'])
+    const Year = document.querySelector('label[aria-label="Année"]').querySelector('div').querySelector('span');
     Year.addEventListener('click', () => {
       const interval = setInterval(() => {
-        if (document.querySelector('div[role="menu"]')) {
+        if (document.querySelector('div[role="listbox"]')) {
           clearInterval(interval);
-          [...document.querySelector('div[role="menu"]').querySelectorAll('span')].filter(item => item.innerText.includes(characteristics["Année"]))[0].click()
+          [...document.querySelector('div[role="listbox"]').querySelectorAll('span')].filter(item => item.innerText.includes(characteristics["Année"]))[0].click()
           Carrosserie.dispatchEvent(new MouseEvent('click', { bubbles: true }));
         }
       }, 300);
@@ -81,13 +80,13 @@ console.log("Pasting Data");
 
     Year.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
-    const Carrosserie = document.querySelector('label[aria-label="Style de carrosserie"]').querySelector('div[aria-invalid="false"]').querySelector('span');
+    const Carrosserie = document.querySelector('label[aria-label="Style de carrosserie"]').querySelector('div').querySelector('span');
     Carrosserie.addEventListener('click', () => {
       const interval = setInterval(() => {
-        if (document.querySelector('div[role="menu"]')) {
+        if (document.querySelector('div[role="listbox"]')) {
           clearInterval(interval);
 
-          [...document.querySelector('div[role="menu"]').querySelectorAll('span')].filter(item => item.innerText.includes(CarrosserieStyles[characteristics["Carrosserie"]]))[0]?.click()
+          [...document.querySelector('div[role="listbox"]').querySelectorAll('span')].filter(item => item.innerText.includes(CarrosserieStyles[characteristics["Carrosserie"]]))[0]?.click()
           Etat.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
 
@@ -96,12 +95,12 @@ console.log("Pasting Data");
 
     })
 
-    const Etat = document.querySelector('label[aria-label="État du véhicule"]').querySelector('div[aria-invalid="false"]').querySelector('span');
+    const Etat = document.querySelector('label[aria-label="État du véhicule"]').querySelector('div').querySelector('span');
     Etat.addEventListener('click', () => {
       const interval = setInterval(() => {
-        if (document.querySelector('div[role="menu"]')) {
+        if (document.querySelector('div[role="listbox"]')) {
           clearInterval(interval);
-          [...document.querySelector('div[role="menu"]').querySelectorAll('span')].filter(item => item.innerText.includes("très bon"))[0]?.click()
+          [...document.querySelector('div[role="listbox"]').querySelectorAll('span')].filter(item => item.innerText.includes("très bon"))[0]?.click()
           Carburant.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
         }
@@ -109,24 +108,24 @@ console.log("Pasting Data");
 
     })
 
-    const Carburant = document.querySelector('label[aria-label="Type de carburant"]').querySelector('div[aria-invalid="false"]').querySelector('span');
+    const Carburant = document.querySelector('label[aria-label="Type de carburant"]').querySelector('div').querySelector('span');
     Carburant.addEventListener('click', () => {
       const interval = setInterval(() => {
-        if (document.querySelector('div[role="menu"]')) {
+        if (document.querySelector('div[role="listbox"]')) {
           clearInterval(interval);
-          [...document.querySelector('div[role="menu"]').querySelectorAll('span')].filter(item => item.innerText.includes(CarburantStyles[characteristics['Carburant']]))[0]?.click()
+          [...document.querySelector('div[role="listbox"]').querySelectorAll('span')].filter(item => item.innerText.includes(CarburantStyles[characteristics['Carburant']]))[0]?.click()
           Transmission.dispatchEvent(new MouseEvent('click', { bubbles: true }));
         }
       }, 300);
 
     })
 
-    const Transmission = document.querySelector('label[aria-label="Boîte de vitesse"]').querySelector('div[aria-invalid="false"]').querySelector('span');
+    const Transmission = document.querySelector('label[aria-label="Boîte de vitesse"]').querySelector('div').querySelector('span');
     Transmission.addEventListener('click', () => {
       const interval = setInterval(() => {
-        if (document.querySelector('div[role="menu"]')) {
+        if (document.querySelector('div[role="listbox"]')) {
           clearInterval(interval);
-          [...document.querySelector('div[role="menu"]').querySelectorAll('span')].filter(item => item.innerText.includes(Transmissions[characteristics['Transmission']]))[0]?.click()
+          [...document.querySelector('div[role="listbox"]').querySelectorAll('span')].filter(item => item.innerText.includes(Transmissions[characteristics['Transmission']]))[0]?.click()
         }
       }, 300);
 
